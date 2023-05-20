@@ -19,8 +19,8 @@ jobs:
 
       - name: Commit and push changes
         run: |
-          git config --local user.email "actions@github.com"
-          git config --local user.name "GitHub Actions"
+          git config --local user.email "hidaytrahman@gmail.com"
+          git config --local user.name "Hidayt Rahman"
           git add changes.log
           git commit -m "Add changes log for main branch"
           git push
