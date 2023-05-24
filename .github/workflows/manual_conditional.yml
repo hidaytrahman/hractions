@@ -20,17 +20,7 @@ jobs:
     - run: |
         echo "Environment: ${{ github.event.inputs.environment }} has selected"
         echo "Tags: ${{ github.event.inputs.tags }}"
-        rm -rf qa
-        cp -r dev qa
         
-    - name: "commit and push"
-    - run: |
-        git config --global user.name "Hidayt Rahman"
-        git config --global user.email "hidaytrahman@gmail.com"
-        git pull
-        git add .
-        git commit -m "add files for qa"
-        git push origin main
         
   deployDEV:
     if: ${{ github.event.inputs.environment == 'DEV' }}
