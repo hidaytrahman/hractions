@@ -11,7 +11,7 @@ on:
         description: 'Test scenario tags'
 
 env: 
-  logLevel: ${{ github.event.inputs.logLevel }}
+  LOG_LEVEL: ${{ github.event.inputs.logLevel }}
         
 jobs:
   printInputs:
@@ -22,7 +22,7 @@ jobs:
         echo "Tags: ${{ github.event.inputs.tags }}" 
         
   printName:
-    if: ${{env.logLevel}} == "hidayt" 
+    if: ${{ env.LOG_LEVEL == 'hidayt' }}
     runs-on: ubuntu-latest
     steps:
     - run: |
