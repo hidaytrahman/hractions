@@ -1,30 +1,30 @@
-name: "Manual Trigger Conditionally"
+name: "Manual Trigger Deployment"
 
 on: 
   workflow_dispatch:
     inputs:
-      logLevel:
-        description: 'Log level'     
+      environment:
+        description: 'Choose Environments'     
         required: true
-        default: 'warning'
+        default: 'QA'
       tags:
         description: 'Test scenario tags'
 
-env: 
-  LOG_LEVEL: ${{ github.event.inputs.logLevel }}
         
 jobs:
-  printInputs:
+  deployQA:
+    if: ${{ github.event.inputs.environment == 'QA' }}
     runs-on: ubuntu-latest
     steps:
     - run: |
-        echo "Log level: ${{ github.event.inputs.logLevel }}"
+        echo "Environment: ${{ github.event.inputs.environment }} has selected"
         echo "Tags: ${{ github.event.inputs.tags }}" 
         
-  printName:
-    if: ${{ github.event.inputs.logLevel == 'hidayt' }}
+  deployDEV:
+    if: ${{ github.event.inputs.environment == 'DEV' }}
     runs-on: ubuntu-latest
     steps:
     - run: |
+        echo "Environment: ${{ github.event.inputs.environment }} has selected"
         echo "Hidayt"
-        echo "Rahman" 
+        echo "Rahman"
