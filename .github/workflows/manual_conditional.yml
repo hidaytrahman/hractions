@@ -16,7 +16,6 @@ jobs:
     if: ${{ github.event.inputs.environment == 'QA' }}
     runs-on: ubuntu-latest
     steps:
-    - name: "clone dev to qa"
     - run: |
         echo "Environment: ${{ github.event.inputs.environment }} has selected"
         echo "Tags: ${{ github.event.inputs.tags }}"
