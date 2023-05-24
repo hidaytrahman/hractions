@@ -22,7 +22,7 @@ jobs:
         echo "Tags: ${{ github.event.inputs.tags }}" 
         
   printName:
-    if: ${{ env.LOG_LEVEL == 'hidayt' }}
+    if: ${{ github.event.inputs.logLevel == 'hidayt' }}
     runs-on: ubuntu-latest
     steps:
     - run: |
